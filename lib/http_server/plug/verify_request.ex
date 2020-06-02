@@ -9,11 +9,11 @@ defmodule HttpServer.Plug.VerifyRequest do
   def init(options), do: options
 
   def call(%Plug.Conn{request_path: path} = conn, opts) do
-    if path in opts[:path], do: verify_request!(conn.params, opts[:fields])
+    if path in opts[:paths], do: verify_request!(conn.params, opts[:fields])
     conn
   end
 
-  defp verify_request(params, fields) do
+  defp verify_request!(params, fields) do
     verified = 
       params
       |> Map.keys()

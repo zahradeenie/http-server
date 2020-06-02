@@ -4,7 +4,7 @@ defmodule HttpServer.Application do
 
   def start(_type, _args) do
     children = [
-      {Plug.Cowboy, scheme: :http, plug: HttpServer.Router, options: [port: 8080] }
+      {Plug.Cowboy, scheme: :http, plug: HttpServer.Router, options: [port: port()] }
     ]
 
     opts = [strategy: :one_for_one, name: HttpServer.Supervisor]
@@ -12,5 +12,9 @@ defmodule HttpServer.Application do
     Logger.info("Starting app...")
 
     Supervisor.start_link(children, opts)
+  end
+
+  defp port do
+    Application.get_env(:http_server, :port, 8080)
   end
 end
