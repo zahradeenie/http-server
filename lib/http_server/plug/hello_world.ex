@@ -1,4 +1,4 @@
-defmodule HttpServer.HelloWorldPlug do
+defmodule HttpServer.Plug.HelloWorld do
   import Plug.Conn
 
   def init(options), do: options
