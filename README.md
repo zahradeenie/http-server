@@ -1,21 +1,9 @@
 # HttpServer
 
-**TODO: Add description**
+The purpose of creating this small application was to find out how a HTTP server is set up in Elixir. I followed the [Elixir School](https://elixirschool.com/en/lessons/specifics/plug/) tutorial on Plugs (based off the official Plug documentation) and have continued reading other sources of info on this.
 
-## Installation
+## What is Plug
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `http_server` to your list of dependencies in `mix.exs`:
+Plug defines the way you create your applications and provides tools to write apps that are understood by web servers.
 
-```elixir
-def deps do
-  [
-    {:http_server, "~> 0.1.0"}
-  ]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/http_server](https://hexdocs.pm/http_server).
-
+Plug uses the `plug_cowboy` adapter which runs on Erlang's Cowboy HTTP server - this simply means we can build functions to send, receive, handle and respond to requests.
